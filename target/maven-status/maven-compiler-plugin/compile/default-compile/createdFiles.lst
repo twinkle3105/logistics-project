@@ -1,0 +1,13 @@
+com\example\logistics\entity\ParcelStatus.class
+com\example\logistics\entity\Receiver$ReceiverBuilder.class
+com\example\logistics\LogisticsApplication.class
+com\example\logistics\entity\Parcel.class
+com\example\logistics\entity\Receiver.class
+com\example\logistics\entity\Payment$PaymentBuilder.class
+com\example\logistics\entity\Sender$SenderBuilder.class
+com\example\logistics\entity\Parcel$ParcelBuilder.class
+com\example\logistics\entity\User$UserBuilder.class
+com\example\logistics\entity\User.class
+com\example\logistics\entity\Role.class
+com\example\logistics\entity\Sender.class
+com\example\logistics\entity\Payment.class
