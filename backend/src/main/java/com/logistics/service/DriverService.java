@@ -1,5 +1,6 @@
 package com.logistics.service;
 
+import com.logistics.exception.ResourceNotFoundException;
 import com.logistics.model.Driver;
 import com.logistics.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class DriverService {
 
     public Driver updateDriver(Long id, Driver driverDetails) {
         Driver driver = driverRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Driver not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Driver not found with id: " + id));
         
         driver.setName(driverDetails.getName());
         driver.setLicenseNumber(driverDetails.getLicenseNumber());

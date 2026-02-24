@@ -111,7 +111,8 @@ function Shipments() {
         loadData();
       } catch (error) {
         console.error('Error deleting shipment:', error);
-        alert('Error deleting shipment');
+        const errorMessage = error.response?.data?.message || 'Error deleting shipment. Please try again.';
+        alert(errorMessage);
       }
     }
   };

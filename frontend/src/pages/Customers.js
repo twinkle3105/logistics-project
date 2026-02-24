@@ -42,7 +42,8 @@ function Customers() {
       loadCustomers();
     } catch (error) {
       console.error('Error saving customer:', error);
-      alert('Error saving customer');
+      const errorMessage = error.response?.data?.message || 'Error saving customer. Please try again.';
+      alert(errorMessage);
     }
   };
 
@@ -64,7 +65,8 @@ function Customers() {
         loadCustomers();
       } catch (error) {
         console.error('Error deleting customer:', error);
-        alert('Error deleting customer');
+        const errorMessage = error.response?.data?.message || 'Error deleting customer. Please try again.';
+        alert(errorMessage);
       }
     }
   };

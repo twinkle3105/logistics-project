@@ -1,5 +1,6 @@
 package com.logistics.service;
 
+import com.logistics.exception.ResourceNotFoundException;
 import com.logistics.model.Vehicle;
 import com.logistics.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class VehicleService {
 
     public Vehicle updateVehicle(Long id, Vehicle vehicleDetails) {
         Vehicle vehicle = vehicleRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Vehicle not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Vehicle not found with id: " + id));
         
         vehicle.setRegistrationNumber(vehicleDetails.getRegistrationNumber());
         vehicle.setType(vehicleDetails.getType());

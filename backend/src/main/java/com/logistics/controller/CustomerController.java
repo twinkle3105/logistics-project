@@ -34,11 +34,7 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
-        try {
-            return ResponseEntity.ok(customerService.updateCustomer(id, customer));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(customerService.updateCustomer(id, customer));
     }
 
     @DeleteMapping("/{id}")

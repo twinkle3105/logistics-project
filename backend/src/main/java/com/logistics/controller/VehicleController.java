@@ -39,11 +39,7 @@ public class VehicleController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle vehicle) {
-        try {
-            return ResponseEntity.ok(vehicleService.updateVehicle(id, vehicle));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(vehicleService.updateVehicle(id, vehicle));
     }
 
     @DeleteMapping("/{id}")

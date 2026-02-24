@@ -1,5 +1,6 @@
 package com.logistics.service;
 
+import com.logistics.exception.ResourceNotFoundException;
 import com.logistics.model.Customer;
 import com.logistics.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class CustomerService {
 
     public Customer updateCustomer(Long id, Customer customerDetails) {
         Customer customer = customerRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id: " + id));
         
         customer.setName(customerDetails.getName());
         customer.setEmail(customerDetails.getEmail());

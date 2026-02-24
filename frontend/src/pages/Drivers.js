@@ -42,7 +42,8 @@ function Drivers() {
       loadDrivers();
     } catch (error) {
       console.error('Error saving driver:', error);
-      alert('Error saving driver');
+      const errorMessage = error.response?.data?.message || 'Error saving driver. Please try again.';
+      alert(errorMessage);
     }
   };
 
@@ -64,7 +65,8 @@ function Drivers() {
         loadDrivers();
       } catch (error) {
         console.error('Error deleting driver:', error);
-        alert('Error deleting driver');
+        const errorMessage = error.response?.data?.message || 'Error deleting driver. Please try again.';
+        alert(errorMessage);
       }
     }
   };

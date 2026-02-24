@@ -1,5 +1,6 @@
 package com.logistics.service;
 
+import com.logistics.exception.ResourceNotFoundException;
 import com.logistics.model.Shipment;
 import com.logistics.repository.ShipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class ShipmentService {
 
     public Shipment updateShipment(Long id, Shipment shipmentDetails) {
         Shipment shipment = shipmentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Shipment not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Shipment not found with id: " + id));
         
         shipment.setCustomer(shipmentDetails.getCustomer());
         shipment.setDriver(shipmentDetails.getDriver());

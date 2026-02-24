@@ -46,11 +46,7 @@ public class ShipmentController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Shipment> updateShipment(@PathVariable Long id, @RequestBody Shipment shipment) {
-        try {
-            return ResponseEntity.ok(shipmentService.updateShipment(id, shipment));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(shipmentService.updateShipment(id, shipment));
     }
 
     @DeleteMapping("/{id}")

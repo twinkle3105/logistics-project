@@ -53,7 +53,8 @@ function Vehicles() {
       loadVehicles();
     } catch (error) {
       console.error('Error saving vehicle:', error);
-      alert('Error saving vehicle');
+      const errorMessage = error.response?.data?.message || 'Error saving vehicle. Please try again.';
+      alert(errorMessage);
     }
   };
 
@@ -76,7 +77,8 @@ function Vehicles() {
         loadVehicles();
       } catch (error) {
         console.error('Error deleting vehicle:', error);
-        alert('Error deleting vehicle');
+        const errorMessage = error.response?.data?.message || 'Error deleting vehicle. Please try again.';
+        alert(errorMessage);
       }
     }
   };
